@@ -2,32 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  background: #151616;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+:root {
+  --bg: #242526;
+  --bg-accent: #484a4d;
+  --text-color: #dadce1;
+  --nav-size: 60px;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
+@layer components {
+  ul {
+    @apply list-none m-0 p-0;
+  }
+
+  a,
+  button {
+    color: var(--text-color);
+    text-decoration: none;
+    @apply text-[var(--text-color)] no-underline;
+  }
+
+  /* Top Navigation Bar */
+
+  /* <li> */
+  .nav-item {
+    @apply w-[calc(var(--nav-size)*0.8)] flex items-center justify-center;
+  }
+
+  /* Icon Button */
+  .icon-button {
+    @apply bg-[#484a4d] rounded-full p-2 m-2 flex items-center justify-center transition-transform;
+  }
+
+  .icon-button:hover {
+    @apply brightness-[1.2];
+  }
+
+  .icon-button svg {
+    @apply fill-[var(--text-color)] w-5 h-5;
+  }
+
+  /* Dropdown Menu */
+
+  .menu-item .icon-button {
+    margin-right: 0.5rem;
+  }
+
+  .menu-item .icon-button:hover {
+    filter: none;
+  }
+
+  .icon-right {
+    margin-left: auto;
+  }
+
+  .icon-right svg {
+    fill: var(--text-color);
+    width: 15px;
+    height: 15px;
   }
 }

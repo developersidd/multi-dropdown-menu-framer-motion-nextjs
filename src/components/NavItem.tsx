@@ -19,7 +19,7 @@ const NavItem = ({
       >
         {icon}
       </button>
-      {children}
+      {open && children}
     </li>
   );
 };

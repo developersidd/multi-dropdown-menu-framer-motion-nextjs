@@ -12,16 +12,16 @@ const DropdownItem = ({
   goToMenu?: string;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
-  setActiveMenu?: (menu: string) => void;
+  setActiveMenu?: any;
 }) => {
   return (
     <motion.a
-      whileTap={{ scale: 0.9 }}
+      whileTap={{ scale: 0.5 }}
       href="#"
       className="menu-item
       h-14 flex items-center rounded-[var(--border-radius)] transition-colors p-2 hover:bg-[#525357]
       "
-      onClick={() => goToMenu && setActiveMenu && setActiveMenu(goToMenu)}
+      onClick={(e) => goToMenu && setActiveMenu && setActiveMenu(goToMenu)}
     >
       {leftIcon && <span className="icon-button">{leftIcon}</span>}
       {children}
